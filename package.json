@@ -1,6 +1,6 @@
 {
-    "name": "vscode-arm-params-generator",
-    "displayName": "vscode-arm-params-generator",
+    "name": "arm-params-generator",
+    "displayName": "ARM Params File Generator",
     "description": "Generate ARM parameters from an existing ARM file",
     "version": "0.0.1",
     "publisher": "wilfriedwoivre",

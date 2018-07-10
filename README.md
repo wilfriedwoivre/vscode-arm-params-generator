@@ -1,6 +1,4 @@
-# vscode-arm-params-generator README
-
-This is the README for extension "vscode-arm-params-generator". 
+# README
 
 ## Features
 
