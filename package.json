@@ -7,6 +7,15 @@
     "engines": {
         "vscode": "^1.25.0"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wilfriedwoivre/vscode-arm-params-generator"
+    },
+    "homepage": "https://github.com/wilfriedwoivre/vscode-arm-params-generator/blob/master.README.md",
+    "bugs": {
+        "url": "https://github.com/wilfriedwoivre/vscode-arm-params-generator/issues",
+        "email": "wilfried.woivre@gmail.com"
+    },
     "categories": [
         "Other"
     ],
