@@ -10,11 +10,14 @@ export function generateParameterFile(editor: vscode.TextEditor): void {
         vscode.window.showErrorMessage("This document " + editor.document.fileName + " is not an ARM Template");
     }
     else {
-        generator.createParameterFile(editor.document.fileName).then(async fileName => 
-            {
-                var textDocument = await vscode.workspace.openTextDocument(fileName);
-                vscode.window.showTextDocument(textDocument);
-            });
+        generator.generateContentFile(editor.document.getText()).then(content => {
+            generator.createParameterFile(editor.document.fileName, content).then(async fileName => 
+                {
+                    var textDocument = await vscode.workspace.openTextDocument(fileName);
+                    vscode.window.showTextDocument(textDocument);
+                });
+        });
+        
     }
     
 };
