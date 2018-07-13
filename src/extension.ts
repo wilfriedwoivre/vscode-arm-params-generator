@@ -10,7 +10,8 @@ export function activate(context: vscode.ExtensionContext) {
     ExtensionState.configure(context);
 
     context.subscriptions.push(
-        vscode.commands.registerTextEditorCommand(constants.commmands.generateParameters, generateParameterFile)
+        //vscode.commands.registerTextEditorCommand(constants.commmands.generateParameters, generateParameterFile),
+        vscode.commands.registerCommand(constants.commmands.generateParameters, generateParameterFile)
     );
 }
 

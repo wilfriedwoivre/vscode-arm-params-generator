@@ -11,3 +11,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Right click on ARM file to generate new ARM parameter file
 - Use command *Azure RM: Generate parameters file*
 - Parameters with default value
+
+## [0.0.2] - 2018-07
+### Added
+- Support right clik from explorer and editor title

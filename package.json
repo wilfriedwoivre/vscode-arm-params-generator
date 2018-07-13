@@ -2,10 +2,10 @@
     "name": "arm-params-generator",
     "displayName": "ARM Params File Generator",
     "description": "Generate ARM parameters from an existing ARM file",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "wilfriedwoivre",
     "engines": {
-        "vscode": "^1.25.0"
+        "vscode": "^1.20.0"
     },
     "repository": {
         "type": "git",
@@ -45,6 +45,20 @@
                 {
                     "command": "arm.generateParameterFile",
                     "when": "editorLangId == json"
+                }
+            ],
+            "editor/title/context": [
+                {
+                    "command": "arm.generateParameterFile",
+                    "when": "resourceLangId == json",
+                    "group": "armtools"
+                }
+            ],
+            "explorer/context": [
+                {
+                    "command": "arm.generateParameterFile",
+                    "when": "resourceLangId == json",
+                    "group": "armtools"
                 }
             ]
         }

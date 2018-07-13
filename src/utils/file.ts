@@ -5,7 +5,7 @@ export function exits(path: string): Promise<boolean> {
         fs.exists(path, exists => {
             resolve(exists);
         });
-    })
+    });
 }
 
 export function write(path: string, data: any): Promise<string> {
