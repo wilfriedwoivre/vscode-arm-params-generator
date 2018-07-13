@@ -1,6 +1,5 @@
 import * as path from "path";
 import * as fileUtils from "../utils/file";
-import { ExceptionInfo } from "_debugger";
 
 export class GenerateParameterFile {
 
