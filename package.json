@@ -2,8 +2,9 @@
     "name": "arm-params-generator",
     "displayName": "ARM Params File Generator",
     "description": "Generate ARM parameters from an existing ARM file",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "publisher": "wilfriedwoivre",
+    "icon": "assets/logo.png",
     "engines": {
         "vscode": "^1.20.0"
     },
@@ -61,6 +62,17 @@
                     "group": "armtools"
                 }
             ]
+        },
+        "configuration":
+        {
+            "title": "Azure RM : Params file generator",
+            "properties": {
+                "arm-params-generator.ignoreDefaultParameters": {
+					"type": "boolean",
+					"default": false,
+					"description": "Ignore default parameters when generate files"
+				}
+            }
         }
     },
     "scripts": {

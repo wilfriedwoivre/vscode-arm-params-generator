@@ -1,4 +1,8 @@
 export namespace commmands {
     export const generateParameters = "arm.generateParameterFile";
-    export const generateParameters2 = "arm.generateParameterFile2";
+}
+
+export namespace config {
+    export const projectName = "arm-params-generator"; 
+    export const ignoreDefaultParameters = "ignoreDefaultParameters"; 
 }

@@ -1,5 +1,7 @@
+import * as vscode from "vscode";
 import * as path from "path";
 import * as fileUtils from "../utils/file";
+import * as constants  from "../constants";
 
 export class GenerateParameterFile {
 
@@ -44,7 +46,11 @@ export class GenerateParameterFile {
             if (key) 
             {
                 if (content.parameters[key].hasOwnProperty('defaultValue')) {
-                    parameters[key] = { value:content.parameters[key].defaultValue };
+                    var configuration =  vscode.workspace.getConfiguration(constants.config.projectName); 
+                    var ignoreDefaultParameters = configuration.get<boolean>(constants.config.ignoreDefaultParameters); 
+                    if (!ignoreDefaultParameters) {
+                        parameters[key] = { value:content.parameters[key].defaultValue };
+                    }
                 }
                 else {
                     parameters[key] = { value:"## TO BE DEFINED ##" };
