@@ -3,7 +3,7 @@
 ## Features
 
 
-Generate Azur RM Parameters files : 
+Generate Azure RM Parameters files : 
 * Right click on Azure RM file to generate a new Azure RM parameter file
 * Right click on Azure RM File from explorer
 * Right click on Azure RM File from editor title
