@@ -19,3 +19,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [0.2.0] - 2018-07-16
 ### Added 
 - Config **arm-params-generator.ignoreDefaultParameters** to ignore default parameters from source file
+
+## [0.3.0] - 2018-07-17
+### Added 
+- Command **Azure RM: Consolidate parameters file**. Add missing parameters to specific ARM parameters file 
+### Changed
+- Rename command **Azure RM : Generate parameters file** to  **Azure RM: Generate parameters file** (remove space)

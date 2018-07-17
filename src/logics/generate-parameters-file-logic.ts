@@ -2,28 +2,13 @@ import * as vscode from "vscode";
 import * as path from "path";
 import * as fileUtils from "../utils/file";
 import * as constants  from "../constants";
+import * as jsonUtils from "../utils/json";
 
 export class GenerateParameterFile {
 
-    public cleanJsonContent(text: string):string {
-        text = text.replace(/\\n/g, "\\n")  
-               .replace(/\\'/g, "\\'")
-               .replace(/\\"/g, '\\"')
-               .replace(/\\&/g, "\\&")
-               .replace(/\\r/g, "\\r")
-               .replace(/\\t/g, "\\t")
-               .replace(/\\b/g, "\\b")
-               .replace(/\\f/g, "\\f");
-            // remove non-printable and other non-valid JSON chars
-        text = text.replace(/[\u0000-\u0019]+/g,""); 
-        text = text.trim();
-
-        return text;
-    }
-
     public isValidDocument(text: string):boolean {
         try {
-            var content = JSON.parse(this.cleanJsonContent(text));
+            var content = JSON.parse(jsonUtils.cleanJsonContent(text));
             return content.$schema === "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#"; 
         }
         catch (error) {
@@ -34,7 +19,7 @@ export class GenerateParameterFile {
 
 
     public async generateContentFile(text: string): Promise<string> {
-        var content = JSON.parse(this.cleanJsonContent(text));
+        var content = JSON.parse(jsonUtils.cleanJsonContent(text));
 
         var result: {[k:string]: any} = {};
         result.$schema = "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#";

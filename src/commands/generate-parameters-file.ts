@@ -3,7 +3,7 @@ import * as fs from "fs";
 import { GenerateParameterFile } from "../logics/generate-parameters-file-logic";
 
 export function generateParameterFile(uri: vscode.TextDocument | vscode.Uri): void {
-
+    
     var text = ""; 
     var filePath = ""; 
     if (!uri || !(<vscode.Uri>uri).fsPath) {
@@ -17,8 +17,6 @@ export function generateParameterFile(uri: vscode.TextDocument | vscode.Uri): vo
         filePath = (<vscode.Uri>uri).fsPath; 
         text = fs.readFileSync(filePath, 'utf-8');
     }
-
-
 
     var generator = new GenerateParameterFile();
     var isValid = generator.isValidDocument(text);
