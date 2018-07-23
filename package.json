@@ -2,7 +2,7 @@
     "name": "arm-params-generator",
     "displayName": "ARM Params File Generator",
     "description": "Generate ARM parameters from an existing ARM file",
-    "version": "0.3.3",
+    "version": "0.3.4",
     "publisher": "wilfriedwoivre",
     "icon": "assets/logo.png",
     "engines": {
@@ -18,7 +18,7 @@
         "email": "wilfried.woivre@gmail.com"
     },
     "categories": [
-        "Other"
+        "Azure"
     ],
     "keywords": [
         "Azure",
