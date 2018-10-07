@@ -13,3 +13,14 @@ export function cleanJsonContent(text: string):string {
 
     return text;
 }
+
+export function isValidARMFile(text: string): boolean{
+    try {
+        var content = JSON.parse(cleanJsonContent(text));
+        return content.$schema === "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#"; 
+    }
+    catch (error) {
+        console.error(error);
+        return false; 
+    }
+}

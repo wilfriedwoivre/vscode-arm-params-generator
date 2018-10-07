@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import * as fs from "fs";
 import { GenerateParameterFile } from "../logics/generate-parameters-file-logic";
+import * as json from "./../utils/json"
 
 export function generateParameterFile(uri: vscode.TextDocument | vscode.Uri): void {
     
@@ -19,7 +20,7 @@ export function generateParameterFile(uri: vscode.TextDocument | vscode.Uri): vo
     }
 
     var generator = new GenerateParameterFile();
-    var isValid = generator.isValidDocument(text);
+    var isValid = json.isValidARMFile(text);
 
     if (!isValid) {
         vscode.window.showErrorMessage("This document " + filePath + " is not an ARM Template");
