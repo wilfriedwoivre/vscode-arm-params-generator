@@ -33,6 +33,11 @@ export class ExtractorParameter {
 
         await editor.edit(builder => {
             for (let selection of editor.selections) {
+                if (selection.isEmpty) {
+                    vscode.window.showWarningMessage("Select text to extract parameter");
+                    return;
+                }
+                
                 let parameterName = editor.document.getText(selection) + "-param";
                 builder.replace(selection, "[parameters('" + parameterName + "')]");
 

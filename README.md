@@ -12,6 +12,9 @@ Generate Azure RM Parameters files :
 Consolidate existing parameters file, only add missing parameters: 
 * Use command **Azure RM: Consolidate parameters files**
 
+Extract parameter
+* Right click on Azure RM File from editor to extract selected value to parameters
+
 
 ![demo.gif](demo.gif)
 

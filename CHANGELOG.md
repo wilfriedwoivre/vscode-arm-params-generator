@@ -25,3 +25,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Command **Azure RM: Consolidate parameters file**. Add missing parameters to specific ARM parameters file 
 ### Changed
 - Rename command **Azure RM : Generate parameters file** to  **Azure RM: Generate parameters file** (remove space)
+
+
+## [0.4.0] - 2018-09-07
+### Added
+- Support right from explorer to create parameter from Azure RM File
+### Changed
+- Display name for extension
