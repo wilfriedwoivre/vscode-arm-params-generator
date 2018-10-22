@@ -2,7 +2,7 @@
     "name": "arm-params-generator",
     "displayName": "ARM Params Generator",
     "description": "Generate ARM parameters from an existing ARM file",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "publisher": "wilfriedwoivre",
     "icon": "assets/logo.png",
     "engines": {

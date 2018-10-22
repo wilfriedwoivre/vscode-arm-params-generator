@@ -32,3 +32,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Support right from explorer to create parameter from Azure RM File
 ### Changed
 - Display name for extension
+
+## [0.4.1] - 2018-10-22
+### Added
+- Support to set parameter name when extract this

@@ -30,39 +30,47 @@ export class ExtractorParameter {
         var templateJson = JSON.parse(jsonUtils.cleanJsonContent(editor.document.getText()));
 
         let hasParameter = Object.keys(templateJson.parameters).length > 0;
-
-        await editor.edit(builder => {
-            for (let selection of editor.selections) {
-                if (selection.isEmpty) {
-                    vscode.window.showWarningMessage("Select text to extract parameter");
-                    return;
-                }
-                
-                let parameterName = editor.document.getText(selection) + "-param";
-                builder.replace(selection, "[parameters('" + parameterName + "')]");
-
-                let findPosition = findParameter(editor.document);
-                if (!findPosition) {
-                    return;
-                }
-
-                let position = new vscode.Position(findPosition[0], findPosition[1]);
-
-                let toInsert = "";
-                if (findPosition[1] !== 0) {
-                    toInsert += "\r\n";
-                }
-                toInsert += "\t\t\"" + parameterName + "\": { \r\n\t\t\t\"type\": \"string\", \r\n\t\t\t\"defaultValue\": \"" + editor.document.getText(selection) + "\"\r\n\t\t}";
-
-                if (hasParameter === true) {
-                    toInsert += ",\r\n";
-                }else {
-                    toInsert += "\r\n\t";
-                }
-
-                builder.insert(position, toInsert);
-                hasParameter = true;
+        for (let selection of editor.selections) {
+            if (selection.isEmpty) {
+                vscode.window.showWarningMessage("Select text to extract parameter");
+                return;
             }
-        });
+
+            vscode.window.showInputBox({
+                placeHolder: "Set your parameter Name"
+            }).then(async parameterName => {
+                await editor.edit(builder => {
+                    if (parameterName) {
+                        builder.replace(selection, "[parameters('" + parameterName + "')]");
+
+                        let findPosition = findParameter(editor.document);
+                        if (!findPosition) {
+                            return;
+                        }
+
+                        let position = new vscode.Position(findPosition[0], findPosition[1]);
+
+                        let toInsert = "";
+                        if (findPosition[1] !== 0) {
+                            toInsert += "\r\n";
+                        }
+                        toInsert += "\t\t\"" + parameterName + "\": { \r\n\t\t\t\"type\": \"string\", \r\n\t\t\t\"defaultValue\": \"" + editor.document.getText(selection) + "\"\r\n\t\t}";
+
+                        if (hasParameter === true) {
+                            toInsert += ",\r\n";
+                        } else {
+                            toInsert += "\r\n\t";
+                        }
+
+                        builder.insert(position, toInsert);
+                        hasParameter = true;
+                    }
+                    else {
+                        vscode.window.showErrorMessage("No parameter name set");
+                    }
+
+                });
+            });
+        }
     }
 }
