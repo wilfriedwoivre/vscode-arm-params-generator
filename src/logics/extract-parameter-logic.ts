@@ -35,10 +35,14 @@ export class ExtractorParameter {
                 vscode.window.showWarningMessage("Select text to extract parameter");
                 return;
             }
+        }
 
-            vscode.window.showInputBox({
-                placeHolder: "Set your parameter Name"
-            }).then(async parameterName => {
+        let selectionIndex = 0;
+        vscode.window.showInputBox({
+            placeHolder: "Set your parameter Name"
+        }).then(async parameterName => {
+            for (let selection of editor.selections) {
+
                 await editor.edit(builder => {
                     if (parameterName) {
                         builder.replace(selection, "[parameters('" + parameterName + "')]");
@@ -48,29 +52,33 @@ export class ExtractorParameter {
                             return;
                         }
 
-                        let position = new vscode.Position(findPosition[0], findPosition[1]);
+                        selectionIndex++;
 
-                        let toInsert = "";
-                        if (findPosition[1] !== 0) {
-                            toInsert += "\r\n";
+                        if (selectionIndex === editor.selections.length) {
+                            let position = new vscode.Position(findPosition[0], findPosition[1]);
+
+                            let toInsert = "";
+                            if (findPosition[1] !== 0) {
+                                toInsert += "\r\n";
+                            }
+                            toInsert += "\t\t\"" + parameterName + "\": { \r\n\t\t\t\"type\": \"string\", \r\n\t\t\t\"defaultValue\": \"" + editor.document.getText(selection) + "\"\r\n\t\t}";
+
+                            if (hasParameter === true) {
+                                toInsert += ",\r\n";
+                            } else {
+                                toInsert += "\r\n\t";
+                            }
+
+                            builder.insert(position, toInsert);
+                            hasParameter = true;
                         }
-                        toInsert += "\t\t\"" + parameterName + "\": { \r\n\t\t\t\"type\": \"string\", \r\n\t\t\t\"defaultValue\": \"" + editor.document.getText(selection) + "\"\r\n\t\t}";
-
-                        if (hasParameter === true) {
-                            toInsert += ",\r\n";
-                        } else {
-                            toInsert += "\r\n\t";
-                        }
-
-                        builder.insert(position, toInsert);
-                        hasParameter = true;
                     }
                     else {
                         vscode.window.showErrorMessage("No parameter name set");
                     }
-
                 });
-            });
-        }
+            }
+        });
+
     }
 }

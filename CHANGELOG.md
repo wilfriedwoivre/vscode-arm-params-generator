@@ -36,3 +36,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [0.4.1] - 2018-10-22
 ### Added
 - Support to set parameter name when extract this
+
+## [0.4.2] - 2018-10-22
+### Added
+- Support multiple selectionss for parameter extractor features
+
