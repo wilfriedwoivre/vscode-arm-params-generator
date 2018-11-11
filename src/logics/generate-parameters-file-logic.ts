@@ -3,10 +3,11 @@ import * as path from "path";
 import * as fileUtils from "../utils/file";
 import * as constants  from "../constants";
 import * as jsonUtils from "../utils/json";
+import * as stripJson from "strip-json-comments";
 
 export class GenerateParameterFile {
     public async generateContentFile(text: string): Promise<string> {
-        var content = JSON.parse(jsonUtils.cleanJsonContent(text));
+        var content = JSON.parse(stripJson(jsonUtils.cleanJsonContent(text)));
 
         var result: {[k:string]: any} = {};
         result.$schema = "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#";

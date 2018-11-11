@@ -1,5 +1,6 @@
 import * as vscode from "vscode";
 import * as jsonUtils from "../utils/json";
+import * as stripJson from "strip-json-comments";
 
 function findPosition(document: vscode.TextDocument, search: string): Array<number> | undefined {
 
@@ -27,7 +28,7 @@ function findPosition(document: vscode.TextDocument, search: string): Array<numb
 export class Extractor {
     public async extractor(editor: vscode.TextEditor): Promise<void> {
 
-        var templateJson = JSON.parse(jsonUtils.cleanJsonContent(editor.document.getText()));
+        var templateJson = JSON.parse(stripJson(jsonUtils.cleanJsonContent(editor.document.getText())));
 
         let hasParameter = Object.keys(templateJson.parameters).length > 0;
         let hasVariables = Object.keys(templateJson.variables).length > 0;

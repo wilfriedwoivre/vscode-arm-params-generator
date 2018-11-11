@@ -46,3 +46,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Support extract to variables
 ### Changed
 - Merge feature extract to parameters with extract to variables
+
+## [0.5.1] - 2018-11-18
+### Added
+- Support for multilines comments in json /* comments */

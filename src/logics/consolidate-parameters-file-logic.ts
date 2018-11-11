@@ -3,6 +3,7 @@ import * as fs from 'fs';
 import * as fileUtils from '../utils/file';
 import * as jsonUtils from '../utils/json';
 import * as constants  from "../constants";
+import * as stripJson from "strip-json-comments";
 
 
 export class ConsolidateParameterFile {
@@ -33,7 +34,7 @@ export class ConsolidateParameterFile {
                 var file = templateFile[0];
                 var filePath = (<vscode.Uri>file).fsPath; 
                 var text = fs.readFileSync(filePath, 'utf-8');
-                var content = JSON.parse(jsonUtils.cleanJsonContent(text));
+                var content = JSON.parse(stripJson(jsonUtils.cleanJsonContent(text)));
                 
                 if (content.$schema === schema) {
                     return file;
@@ -70,8 +71,8 @@ export class ConsolidateParameterFile {
         var templateContent = fs.readFileSync(template.fsPath, 'UTF-8'); 
         var parameterContent = fs.readFileSync(parameters.fsPath, 'UTF-8'); 
 
-        var templateJson = JSON.parse(jsonUtils.cleanJsonContent(templateContent)); 
-        var parametersJson = JSON.parse(jsonUtils.cleanJsonContent(parameterContent)); 
+        var templateJson = JSON.parse(stripJson(jsonUtils.cleanJsonContent(templateContent))); 
+        var parametersJson = JSON.parse(stripJson(jsonUtils.cleanJsonContent(parameterContent))); 
 
         var configuration =  vscode.workspace.getConfiguration(constants.config.projectName); 
         var ignoreDefaultParameters = configuration.get<boolean>(constants.config.ignoreDefaultParameters);
