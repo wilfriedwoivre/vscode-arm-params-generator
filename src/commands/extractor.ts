@@ -1,16 +1,16 @@
 import * as vscode from "vscode";
 import * as json from "./../utils/json";
-import { ExtractorParameter } from "../logics/extract-parameter-logic";
+import { Extractor } from "../logics/extract-logic";
 
-export function extractParameter(editor: vscode.TextEditor): void {
+export function extractor(editor: vscode.TextEditor): void {
     var isValid = json.isValidARMFile(editor.document.getText());
-    var extractor = new ExtractorParameter();
+    var extractor = new Extractor();
 
     if (!isValid) {
         vscode.window.showErrorMessage("This document is not an ARM Template");
     }
     else {
-        extractor.extractorParameter(editor);
+        extractor.extractor(editor);
     }
     
 }

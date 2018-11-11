@@ -41,3 +41,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Added
 - Support multiple selectionss for parameter extractor features
 
+## [0.5.0] - 2018-10-31
+### Added
+- Support extract to variables
+### Changed
+- Merge feature extract to parameters with extract to variables

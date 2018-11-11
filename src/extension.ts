@@ -5,13 +5,13 @@ import * as vscode from 'vscode';
 import * as constants from './constants';
 import { generateParameterFile } from './commands/generate-parameters-file';
 import { consolidateFiles } from './commands/consolidate-parameters-file';
-import { extractParameter } from './commands/extract-parameter';
+import { extractor } from './commands/extractor';
 
 export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
         vscode.commands.registerCommand(constants.commmands.generateParameters, generateParameterFile),
         vscode.commands.registerCommand(constants.commmands.consolidateFiles, consolidateFiles),
-        vscode.commands.registerTextEditorCommand(constants.commmands.extractParameter, extractParameter)
+        vscode.commands.registerTextEditorCommand(constants.commmands.extractor, extractor)
     );
 }
 

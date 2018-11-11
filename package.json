@@ -1,8 +1,8 @@
 {
     "name": "arm-params-generator",
     "displayName": "ARM Params Generator",
-    "description": "Generate ARM parameters from an existing ARM file",
-    "version": "0.4.2",
+    "description": "ARM Tools to extract parameter or va",
+    "version": "0.5.0",
     "publisher": "wilfriedwoivre",
     "icon": "assets/logo.png",
     "engines": {
@@ -27,7 +27,7 @@
     "activationEvents": [
         "onCommand:arm.generateParameterFile",
         "onCommand:arm.consolidateFiles",
-        "onCommand:arm.extractParameter"
+        "onCommand:arm.extractor"
     ],
     "main": "./out/extension",
     "contributes": {
@@ -41,8 +41,8 @@
                 "title": "Azure ARM: Consolidate parameters file"
             },
             {
-                "command": "arm.extractParameter",
-                "title": "Azure ARM: Extract Parameter"
+                "command": "arm.extractor",
+                "title": "Azure ARM: Extract Parameter or Variable"
             }
         ],
         "menus": {
@@ -58,7 +58,7 @@
                     "when": "editorLangId == json"
                 },
                 {
-                    "command": "arm.extractParameter",
+                    "command": "arm.extractor",
                     "when": "editorTextFocus && editorLangId == json"
                 }
             ],
@@ -77,15 +77,14 @@
                 }
             ]
         },
-        "configuration":
-        {
+        "configuration": {
             "title": "Azure RM : Params file generator",
             "properties": {
                 "arm-params-generator.ignoreDefaultParameters": {
-					"type": "boolean",
-					"default": false,
-					"description": "Ignore default parameters when generate files"
-				}
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Ignore default parameters when generate files"
+                }
             }
         }
     },
@@ -100,6 +99,7 @@
         "typescript": "^2.6.1",
         "vscode": "^1.1.21",
         "tslint": "^5.8.0",
+        "comment-json": "1.1.3",
         "@types/node": "^8.10.25",
         "@types/mocha": "^2.2.42"
     }
