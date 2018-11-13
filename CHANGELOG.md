@@ -47,6 +47,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Changed
 - Merge feature extract to parameters with extract to variables
 
-## [0.5.1] - 2018-11-18
+## [0.5.1] - 2018-11-11
 ### Added
 - Support for multilines comments in json /* comments */
+
+## [0.6.0] - 2018-11-13
+### Changed
+- Update JSON schema for ARM Template
