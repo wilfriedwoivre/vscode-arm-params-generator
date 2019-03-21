@@ -2,7 +2,7 @@
     "name": "arm-params-generator",
     "displayName": "ARM Params Generator",
     "description": "ARM Tools to extract parameter or variables",
-    "version": "0.6.0",
+    "version": "0.6.1",
     "publisher": "wilfriedwoivre",
     "icon": "assets/logo.png",
     "engines": {
@@ -96,12 +96,13 @@
         "test": "npm run compile && node ./node_modules/vscode/bin/test"
     },
     "devDependencies": {
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.21",
-        "tslint": "^5.8.0",
-        "@types/node": "^8.10.25",
         "@types/mocha": "^2.2.42",
-        "@types/strip-json-comments": "0.0.30"
+        "@types/node": "^8.10.25",
+        "@types/strip-json-comments": "0.0.30",
+        "strip-json-comments": "^2.0.1",
+        "tslint": "^5.8.0",
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.32"
     },
     "dependencies": {
         "strip-json-comments": "^2.0.1"

@@ -54,3 +54,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [0.6.0] - 2018-11-13
 ### Changed
 - Update JSON schema for ARM Template
+
+## [0.6.1] - 2019-03-21
+### Updated
+- Update dependency versions
