@@ -58,3 +58,4 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [0.6.1] - 2019-03-21
 ### Updated
 - Update dependency versions
+- Improve error message

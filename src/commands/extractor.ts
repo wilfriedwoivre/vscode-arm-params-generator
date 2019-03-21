@@ -7,7 +7,11 @@ export function extractor(editor: vscode.TextEditor): void {
     var extractor = new Extractor();
 
     if (isValid !== true) {
-        vscode.window.showErrorMessage("This document is not an ARM Template. JSON Error : " + isValid.message);
+        var message = isValid.message; 
+        if (message === undefined) {
+            message = "Schema is not valid";
+        }
+        vscode.window.showErrorMessage("This document is not an ARM Template. JSON Error : " + message);
     }
     else {
         extractor.extractor(editor);

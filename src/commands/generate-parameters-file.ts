@@ -23,7 +23,12 @@ export function generateParameterFile(uri: vscode.TextDocument | vscode.Uri): vo
     var isValid = json.isValidARMFile(text);
 
     if (isValid !== true) {
-        vscode.window.showErrorMessage("This document " + filePath + " is not an ARM Template. JSON Error : " + isValid.message);
+        var message = isValid.message; 
+        if (message === undefined) {
+            message = "Schema is not valid";
+        }
+
+        vscode.window.showErrorMessage("This document " + filePath + " is not an ARM Template. JSON Error : " + message);
     }
     else {
         generator.generateContentFile(text).then(content => {
