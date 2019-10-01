@@ -59,3 +59,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Updated
 - Update dependency versions
 - Improve error message
+
+## [0.7.0] - 2019-10-01
+### Changed
+- Use new language id : `arm-template`
