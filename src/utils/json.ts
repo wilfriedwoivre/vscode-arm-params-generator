@@ -19,7 +19,7 @@ export function cleanJsonContent(text: string):string {
 export function isValidARMFile(text: string): any {
     try {
         var content = JSON.parse(stripJson(cleanJsonContent(text)));
-        return content.$schema.includes("schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json");
+        return content.$schema.includes("schema.management.azure.com");
     }
     catch (error) {
         console.error(error);

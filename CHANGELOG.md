@@ -60,6 +60,13 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Update dependency versions
 - Improve error message
 
-## [0.7.0] - 2019-10-01
+## [0.8.0] - 2019-10-01
 ### Changed
 - Use new language id : `arm-template`
+
+## [0.8.1] - 2019-11-13
+### Changed
+
+- Update schema validation
+- Add more tags
+

@@ -2,7 +2,7 @@
     "name": "arm-params-generator",
     "displayName": "ARM Params Generator",
     "description": "ARM Tools to extract parameter or variables",
-    "version": "0.8.0",
+    "version": "0.8.1",
     "publisher": "wilfriedwoivre",
     "icon": "assets/logo.png",
     "engines": {
@@ -22,7 +22,9 @@
     ],
     "keywords": [
         "Azure",
-        "ARM"
+        "ARM",
+        "Azure Resource Manager",
+        "arm-template"
     ],
     "activationEvents": [
         "onCommand:arm.generateParameterFile",
