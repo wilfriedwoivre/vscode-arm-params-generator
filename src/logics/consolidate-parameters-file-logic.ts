@@ -13,7 +13,7 @@ export class ConsolidateParameterFile {
         return files; 
     }
 
-    public async getARMFile(message:string, schema: string): Promise<vscode.Uri | undefined> {
+    public async getARMFile(message:string, schema: string[]): Promise<vscode.Uri | undefined> {
         var jsonFiles = await this.getJsonFiles(); 
         
         if (jsonFiles.length === 0) {
@@ -36,7 +36,7 @@ export class ConsolidateParameterFile {
                 var text = fs.readFileSync(filePath, 'utf-8');
                 var content = JSON.parse(stripJson(jsonUtils.cleanJsonContent(text)));
                 
-                if (content.$schema === schema) {
+                if (schema.indexOf(content.$schema) > -1) {
                     return file;
                 }
             }
@@ -46,8 +46,9 @@ export class ConsolidateParameterFile {
     }
 
     public async getARMTemplate(): Promise<vscode.Uri | undefined> {
-        var schema = "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#"; 
-        var file = await this.getARMFile("Select ARM Template file", schema);
+        var schemas = [constants.schema.armSchema2015, constants.schema.armSchema2019];
+        
+        var file = await this.getARMFile("Select ARM Template file", schemas);
         
         if (file) {
             return file;
@@ -57,8 +58,9 @@ export class ConsolidateParameterFile {
     }
 
     public async getARMParameters(): Promise<vscode.Uri | undefined> {
-        var schema = "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#"; 
-        var file = await this.getARMFile("Select ARM parameters file", schema);
+        var schemas = [constants.schema.armParameterSchema2015, constants.schema.armParameterSchema2019];
+
+        var file = await this.getARMFile("Select ARM parameters file", schemas);
         
         if (file) {
             return file;

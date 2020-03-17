@@ -70,3 +70,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Update schema validation
 - Add more tags
 
+
+## [0.9.0] - 2020-03-17
+### Changed
+
+- Add support for new schema for Azure
+- Keep support of old schema with settings

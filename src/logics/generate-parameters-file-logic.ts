@@ -7,10 +7,21 @@ import * as stripJson from "strip-json-comments";
 
 export class GenerateParameterFile {
     public async generateContentFile(text: string): Promise<string> {
+        var configuration =  vscode.workspace.getConfiguration(constants.config.projectName); 
+        var useNewerVersion = configuration.get<boolean>(constants.config.useNewerVersion);
+
+        var schema = "";
+        if (useNewerVersion) {
+            schema = constants.schema.armParameterSchema2019;
+        }
+        else {
+            schema = constants.schema.armParameterSchema2015; 
+        }
+
         var content = JSON.parse(stripJson(jsonUtils.cleanJsonContent(text)));
 
         var result: {[k:string]: any} = {};
-        result.$schema = "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#";
+        result.$schema = schema;
         result.contentVersion= "1.0.0.0";
     
         var parameters: {[k:string]: any} = {};
@@ -19,7 +30,6 @@ export class GenerateParameterFile {
             if (key) 
             {
                 if (content.parameters[key].hasOwnProperty('defaultValue')) {
-                    var configuration =  vscode.workspace.getConfiguration(constants.config.projectName); 
                     var ignoreDefaultParameters = configuration.get<boolean>(constants.config.ignoreDefaultParameters); 
                     if (!ignoreDefaultParameters) {
                         parameters[key] = { value:content.parameters[key].defaultValue };
