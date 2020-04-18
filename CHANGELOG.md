@@ -76,3 +76,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Add support for new schema for Azure
 - Keep support of old schema with settings
+
+
+## [1.0.0] - 2020-04-18
+### Changed
+
+- Update tslint to eslint
+- Fix some vulnerabilities with NPM packages
