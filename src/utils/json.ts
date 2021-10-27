@@ -1,6 +1,6 @@
 import * as stripJson from "strip-json-comments";
 
-export function cleanJsonContent(text: string):string {
+export function cleanJsonContext(text: string):string {
     text = text.replace(/\\n/g, "\\n")  
            .replace(/\\'/g, "\\'")
            .replace(/\\"/g, '\\"')
@@ -18,7 +18,7 @@ export function cleanJsonContent(text: string):string {
 
 export function isValidARMFile(text: string): any {
     try {
-        var content = JSON.parse(stripJson(cleanJsonContent(text)));
+        var content = JSON.parse(stripJson(cleanJsonContext(text)));
         return content.$schema.includes("schema.management.azure.com");
     }
     catch (error) {

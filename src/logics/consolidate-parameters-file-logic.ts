@@ -34,7 +34,7 @@ export class ConsolidateParameterFile {
                 var file = templateFile[0];
                 var filePath = (<vscode.Uri>file).fsPath; 
                 var text = fs.readFileSync(filePath, 'utf-8');
-                var content = JSON.parse(stripJson(jsonUtils.cleanJsonContent(text)));
+                var content = JSON.parse(stripJson(jsonUtils.cleanJsonContext(text)));
                 
                 if (schema.indexOf(content.$schema) > -1) {
                     return file;
@@ -70,11 +70,11 @@ export class ConsolidateParameterFile {
     }
 
     public async consolidate(template: vscode.Uri, parameters: vscode.Uri): Promise<void> {
-        var templateContent = fs.readFileSync(template.fsPath, 'UTF-8'); 
-        var parameterContent = fs.readFileSync(parameters.fsPath, 'UTF-8'); 
+        var templateContent = fs.readFileSync(template.fsPath, 'utf-8'); 
+        var parameterContent = fs.readFileSync(parameters.fsPath, 'utf-8'); 
 
-        var templateJson = JSON.parse(stripJson(jsonUtils.cleanJsonContent(templateContent))); 
-        var parametersJson = JSON.parse(stripJson(jsonUtils.cleanJsonContent(parameterContent))); 
+        var templateJson = JSON.parse(stripJson(jsonUtils.cleanJsonContext(templateContent))); 
+        var parametersJson = JSON.parse(stripJson(jsonUtils.cleanJsonContext(parameterContent))); 
 
         var configuration =  vscode.workspace.getConfiguration(constants.config.projectName); 
         var ignoreDefaultParameters = configuration.get<boolean>(constants.config.ignoreDefaultParameters);

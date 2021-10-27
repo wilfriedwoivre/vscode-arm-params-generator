@@ -18,7 +18,7 @@ export class GenerateParameterFile {
             schema = constants.schema.armParameterSchema2015; 
         }
 
-        var content = JSON.parse(stripJson(jsonUtils.cleanJsonContent(text)));
+        var content = JSON.parse(stripJson(jsonUtils.cleanJsonContext(text)));
 
         var result: {[k:string]: any} = {};
         result.$schema = schema;
@@ -52,12 +52,12 @@ export class GenerateParameterFile {
         const extension = '.parameters.json';
     
         var newFilePath = path.join(dirName, fileName + extension); 
-        var isExists = await fileUtils.exits(newFilePath);
+        var isExists = await fileUtils.exists(newFilePath);
     
         var i = 1; 
         while (isExists) {
             newFilePath = path.join(dirName, fileName + "." + i + extension); 
-            isExists = await fileUtils.exits(newFilePath);
+            isExists = await fileUtils.exists(newFilePath);
             i += 1;
         }
     

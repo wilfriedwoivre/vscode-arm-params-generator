@@ -83,3 +83,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Update tslint to eslint
 - Fix some vulnerabilities with NPM packages
+
+## [1.0.1] - 2021-10-27
+### Changed
+
+- Fix some vulnerabilities with NPM packages
+- Update all NPM packages

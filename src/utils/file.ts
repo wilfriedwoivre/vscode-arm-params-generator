@@ -1,6 +1,6 @@
 import * as fs from "fs";
 
-export function exits(path: string): Promise<boolean> {
+export function exists(path: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
         fs.exists(path, exists => {
             resolve(exists);
