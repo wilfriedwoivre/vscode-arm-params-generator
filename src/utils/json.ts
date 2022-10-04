@@ -1,4 +1,5 @@
-import * as stripJson from "strip-json-comments";
+import { default as stripJson } from "strip-json-comments";
+
 
 export function cleanJsonContext(text: string):string {
     text = text.replace(/\\n/g, "\\n")  

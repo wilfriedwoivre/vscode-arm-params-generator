@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as fileUtils from '../utils/file';
 import * as jsonUtils from '../utils/json';
 import * as constants  from "../constants";
-import * as stripJson from "strip-json-comments";
+import { default as stripJson } from "strip-json-comments";
 
 
 export class ConsolidateParameterFile {

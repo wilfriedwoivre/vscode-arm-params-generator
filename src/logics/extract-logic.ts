@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import * as jsonUtils from "../utils/json";
-import * as stripJson from "strip-json-comments";
+import { default as stripJson } from "strip-json-comments";
 
 function findPosition(document: vscode.TextDocument, search: string): Array<number> | undefined {
 
