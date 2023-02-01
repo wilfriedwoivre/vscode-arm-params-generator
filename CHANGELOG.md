@@ -95,3 +95,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Fix some vulnerabilities with NPM packages
 - Update all NPM packages
+
+## [1.0.3] - 2023-02-01
+### Changed
+
+- Fix some vulnerabilities with NPM packages
+- Update VSCODE NPM packages
