@@ -100,4 +100,4 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Changed
 
 - Fix some vulnerabilities with NPM packages
-- Update NPM packages
+- Update VSCODE NPM packages
